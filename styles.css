@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
+
+:root{
+    --headerColor: white;
+    --headerShadow: white;
+    --buttonBackground: white;
+    --textDark: #41295a;
+    --textLight: white;
+
+    --color1: orangered;
+    --color2: firebrick;
+    --color3: maroon;
+    --color4: darkred;
+}
+
+body{
+     /* background-color: black; */
+
+     background: #0F2027;  /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     
+}
+.container-center{
+    margin: auto;
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.welcome{
+    width: 100%;
+    height: 90vh;
+}
+#header{
+    font-size: 4rem;
+    color: var(--headerColor);
+    color: tomato;
+    font-family: Yellowtail;
+    width: 50%;
+    margin: 20px auto;
+    --interval: 1.5s;
+  text-shadow: 
+    0 0 10px var(--color1),
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: flicker steps(100) var(--interval) 1s infinite;
+}
+@keyframes flicker {
+    
+    50% {
+        color: white;
+        filter: saturate(200%) hue-rotate(20deg);
+      }
+}
+#click{
+    text-decoration: none;
+    color: var(--textLight);
+}
+.user-input{
+    /* padding-top: 2rem; */
+    margin-top: 0;
+    
+    /* position: absolute; */
+}
+.user-input p{
+    /* display: inline; */
+    color: var(--textLight);
+}
+.user-input input{
+    display: inline;
+    margin: 0.5rem auto;
+    border: 1px solid gray;
+    padding: 0.5rem;
+}
+#btn{
+    display: block;
+    border: 1px solid gray;
+    border: none;
+    margin: 1rem auto;
+    padding: 0.3rem;
+    background-color: var(--buttonBackground);
+    color: var(--textDark);
+    /* margin-bottom: 15%; */
+}
+.result{
+    padding: 1rem;
+    font-size: 30pt;
+    color: var(--textLight);
+    padding-bottom: 15%;
+}
