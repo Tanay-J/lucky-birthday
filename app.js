@@ -9,6 +9,8 @@ btn.addEventListener("click",clickHandler);
 function clickHandler(){
     var dobArray = dob.value.toString().split('');
     var digit = 0;
+    var resultColor = getComputedStyle(document.body).getPropertyValue('--resultColor');
+    
     dobArray.map(item => {
         if(item!="/"){
             digit = parseInt(digit)+parseInt(item); 
@@ -18,13 +20,13 @@ function clickHandler(){
     console.log(dobArray)
     if(digit%luckyNo.value == 0 && dobArray.length == 10){
         result.textContent = "Your birthday is LUCKY";
-        // result.style.backgroundImage = "url('/images/lucky.svg')";
+        document.documentElement.style.setProperty('--resultColor','green');
     }else if(isNaN(digit%luckyNo.value) || dobArray.length != 10){
+        document.documentElement.style.setProperty('--resultColor','black');
         result.textContent = "Input incorrect";
-
     }
     else{
+        document.documentElement.style.setProperty('--resultColor','orangered');
         result.textContent = "Your birthday is NOT LUCKY";
-        result.style.backgroundImage = "url('/images/unlucky.svg')";
     }
 }
