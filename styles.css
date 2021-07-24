@@ -7,14 +7,13 @@
 :root{
     --headerColor: white;
     --headerShadow: white;
-    --buttonBackground: white;
-    --textDark: #41295a;
+    --buttonBackground: #CFD2D4;
+    --textDark: #0F2027;
     --textLight: white;
 
-    --color1: orangered;
-    --color2: firebrick;
-    --color3: maroon;
-    --color4: darkred;
+    --color: orangered;
+
+    --resultColor:orangered;
 }
 
 body{
@@ -37,20 +36,19 @@ body{
 }
 #header{
     font-size: 4rem;
-    color: var(--headerColor);
     color: tomato;
     font-family: Yellowtail;
     width: 50%;
     margin: 20px auto;
     --interval: 1.5s;
-  text-shadow: 
-    0 0 10px var(--color1),
-    0 0 20px var(--color2),
-    0 0 40px var(--color3),
-    0 0 80px var(--color4);
-  will-change: filter, color;
-  filter: saturate(60%);
-  animation: flicker steps(100) var(--interval) 1s infinite;
+    text-shadow: 
+        0 0 10px var(--color),
+        0 0 20px var(--color),
+        0 0 40px var(--color),
+        0 0 80px var(--color);
+    will-change: filter, color;
+    filter: saturate(60%);
+    animation: flicker steps(100) var(--interval) 1s infinite;
 }
 @keyframes flicker {
     
@@ -62,6 +60,7 @@ body{
 #click{
     text-decoration: none;
     color: var(--textLight);
+    
 }
 .user-input{
     /* padding-top: 2rem; */
@@ -77,21 +76,68 @@ body{
     display: inline;
     margin: 0.5rem auto;
     border: 1px solid gray;
+    border-radius: 4px;
     padding: 0.5rem;
+    background-color: var(--buttonBackground);
+    box-shadow: 8px 10px 10px 1px rgba(0,0,0,0.5);
 }
 #btn{
     display: block;
     border: 1px solid gray;
-    border: none;
+    border: 2px solid var(--textDark);
+    border-radius: 20px;
     margin: 1rem auto;
-    padding: 0.3rem;
+    padding: 10px;
     background-color: var(--buttonBackground);
     color: var(--textDark);
-    /* margin-bottom: 15%; */
+    box-shadow: 8px 10px 10px 1px rgba(0,0,0,0.5);
+
 }
 .result{
-    padding: 1rem;
+    padding-top: 1rem;
     font-size: 30pt;
-    color: var(--textLight);
+    /* color: var(--textLight); */
     padding-bottom: 15%;
+
+    --interval: 1.5s;
+    text-shadow: 
+      0 0 10px var(--resultColor),
+      0 0 20px var(--resultColor),
+      0 0 40px var(--resultColor),
+      0 0 80px var(--resultColor);
+    will-change: filter, color;
+    filter: saturate(60%);
+    animation: flicker steps(100) var(--interval) 1s infinite;
+}
+#privacy{
+    text-align: center;
+    margin: auto 20%;
+    padding: 5px;
+    color: var(--textLight);
+    border: 1px solid var(--textLight);
+    border-radius: 5px;
+}
+.footer{
+    background-color: var(--buttonBackground);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 5px;
+    padding: 2px;
+}
+.footer-header{
+    background-color: var(--textDark);
+    color: var(--textLight);
+    font-size: 1.2rem;
+    padding: 2px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.footer ul{
+    padding-inline-start: 0;
+}
+.list-inline{
+    display: inline;
+    list-style: none;
+    text-decoration: none;
+    margin: 10px;
 }
