@@ -4,18 +4,40 @@ var btn = document.querySelector("#btn");
 var result = document.querySelector(".result");
 btn.addEventListener("click",clickHandler);
 
-
+// const currentDate = new Date();
+// dob.setAttribute("max",currentDate.toISOString().split('T')[0]);
 
 function clickHandler(){
-    var dobArray = [];
+    var dobArray = dob.value.split('');
     var digit = 0;
     
-    dobArray = dob.value.toString().split('');
+    const currentDate = new Date();
+    const inputDate = dob.value.split('-');
+    
+    if(inputDate[0] > currentDate.getFullYear()){
+        document.documentElement.style.setProperty('--resultColor','black');
+        result.textContent = "Birthdate should be prior to today";
+        return;
+    }
+    if(inputDate[0] == currentDate.getFullYear()){
+        if(inputDate[1] > (currentDate.getMonth()+1)){
+            document.documentElement.style.setProperty('--resultColor','black');
+            result.textContent = "Birthdate should be prior to today";
+            return;
+        }
+        if(inputDate[1] == (currentDate.getMonth()+1)){
+            if(inputDate[2] > currentDate.getDate()){
+                document.documentElement.style.setProperty('--resultColor','black');
+                result.textContent = "Birthdate should be prior to today";
+                return;
+            }
+        }
+    }
+
     dobArray.map(item => {
         if(item!="-"){
             digit = parseInt(digit)+parseInt(item); 
         }
-       
     })
     if(digit%luckyNo.value == 0 && dobArray.length == 10){
         result.textContent = "Your birthday is LUCKY";
